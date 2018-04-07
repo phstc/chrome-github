@@ -1,0 +1,27 @@
+{
+  "name": "Chrome GitHub",
+  "icons": {
+    "128": "icon-128.png",
+    "34": "icon-34.png"
+  },
+  "manifest_version": 2,
+  "content_security_policy":
+    "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "js": ["content.bundle.js"],
+      "matches": ["*://github.com/*/*/issues/*", "*://github.com/*/*/pull/*"],
+      "run_at": "document_end"
+    }
+  ],
+  "background": {
+    "scripts": ["eventPage.bundle.js"],
+    "persistent": false
+  },
+  "permissions": [
+    "*://github.com/*/*/issues/*",
+    "*://github.com/*/*/pull/*",
+    "tabs",
+    "webNavigation"
+  ]
+}
