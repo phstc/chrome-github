@@ -44,9 +44,8 @@ const generateLinks = () => {
   }
 
   const appendHTML = html => {
-    document
-      .getElementsByClassName('discussion-sidebar-item')[2]
-      .insertAdjacentHTML('beforebegin', html)
+    const target = document.getElementsByClassName('discussion-sidebar-item')[2]
+    target && target.insertAdjacentHTML('beforebegin', html)
   }
 
   if (prs.length > 0) appendHTML(containerHTML('Pull requests', prs))

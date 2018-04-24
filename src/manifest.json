@@ -12,6 +12,11 @@
       "js": ["content.bundle.js"],
       "matches": ["*://github.com/*/*/issues/*", "*://github.com/*/*/pull/*"],
       "run_at": "document_end"
+    },
+    {
+      "js": ["assigned.bundle.js"],
+      "matches": ["*://github.com/issue*"],
+      "run_at": "document_end"
     }
   ],
   "background": {
@@ -21,6 +26,7 @@
   "permissions": [
     "*://github.com/*/*/issues/*",
     "*://github.com/*/*/pull/*",
+    "*://github.com/issue*",
     "tabs",
     "webNavigation"
   ]
