@@ -18,8 +18,13 @@ const generateAssignees = () => {
   const assignees = () => {
     return users
       .map(userArr => {
+        const threeDaysAgo = new Date()
+        threeDaysAgo.setDate(threeDaysAgo.getDate() - 5)
+        const year = threeDaysAgo.getFullYear()
+        const month = `0${threeDaysAgo.getMonth() + 1}`.slice(-2)
+        const day = `0${threeDaysAgo.getDate()}`.slice(-2)
         const [user, userId] = userArr
-        const url = `/issues?q=assignee%3A${user}+is%3Aopen+user%3Awoodmont+is%3Aissue`
+        const url = `/issues?q=assignee%3A${user}+user%3Awoodmont+is%3Aissue+updated%3A>${year}-${month}-${day}+sort%3Aupdated-desc`
         return `
         <a style="padding-left: 5px" class="avatar" aria-label="${user} assigned issues" href="${url}">
           <img class="from-avatar" src="https://avatars3.githubusercontent.com/u/${userId}?s=60&amp;v=4" width="30" height="30" alt="@${user}">
