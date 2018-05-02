@@ -1,6 +1,15 @@
 // https://github.com/issues?q=assignee%3Aphstc+is%3Aopen
 const DIV_CONTAINER_ID = 'issues-assignees'
 
+const getCurrentAssignee = () => {
+  let currentAssignee = document.getElementsByName('q')[1]
+  currentAssignee = currentAssignee && currentAssignee.value
+  currentAssignee = currentAssignee && currentAssignee.split('assignee:')[1]
+  currentAssignee = currentAssignee && currentAssignee.split(' ')[0]
+  currentAssignee = currentAssignee && currentAssignee.trim()
+  return currentAssignee
+}
+
 const generateAssignees = () => {
   users = [
     ['phstc', 105652],
@@ -25,8 +34,12 @@ const generateAssignees = () => {
         const day = `0${threeDaysAgo.getDate()}`.slice(-2)
         const [user, userId] = userArr
         const url = `/issues?q=assignee%3A${user}+user%3Awoodmont+is%3Aissue+updated%3A>${year}-${month}-${day}+sort%3Aupdated-desc`
+        const style =
+          user === getCurrentAssignee()
+            ? 'border-color: #0366d6;border-style: solid;'
+            : ''
         return `
-        <a style="padding-left: 5px" class="avatar" aria-label="${user} assigned issues" href="${url}">
+        <a style="line-height: 0; ${style}" class="avatar" aria-label="${user} assigned issues" href="${url}">
           <img class="from-avatar" src="https://avatars3.githubusercontent.com/u/${userId}?s=60&amp;v=4" width="30" height="30" alt="@${user}">
         </a>
     `
