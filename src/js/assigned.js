@@ -10,7 +10,25 @@ const getCurrentAssignee = () => {
   return currentAssignee
 }
 
+const highlightIssues = () => {
+  Array.from(document.getElementsByClassName('octicon-issue-closed')).forEach(
+    elem => {
+      elem.parentElement.parentElement.parentElement.style['background-color'] =
+        '#fff7fa'
+    }
+  )
+
+  Array.from(document.getElementsByClassName('octicon-issue-opened')).forEach(
+    elem => {
+      elem.parentElement.parentElement.parentElement.style['background-color'] =
+        '#f7fff8'
+    }
+  )
+}
+
 const generateAssignees = () => {
+  highlightIssues()
+
   users = [
     ['phstc', 105652],
     ['ablythe', 6164745],
