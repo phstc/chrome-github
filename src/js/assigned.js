@@ -11,19 +11,28 @@ const getCurrentAssignee = () => {
 }
 
 const highlightIssues = () => {
-  Array.from(document.getElementsByClassName('octicon-issue-closed')).forEach(
-    elem => {
-      elem.parentElement.parentElement.parentElement.style['background-color'] =
-        '#fff7fa'
-    }
+  // Do not highlight empty state
+  if (document.getElementsByClassName('blankslate-icon').length === 1) {
+    return
+  }
+
+  const closed = Array.from(
+    document.getElementsByClassName('octicon-issue-closed')
   )
 
-  Array.from(document.getElementsByClassName('octicon-issue-opened')).forEach(
-    elem => {
-      elem.parentElement.parentElement.parentElement.style['background-color'] =
-        '#f7fff8'
-    }
+  closed.forEach(elem => {
+    elem.parentElement.parentElement.parentElement.style['background-color'] =
+      '#fff7fa'
+  })
+
+  const opened = Array.from(
+    document.getElementsByClassName('octicon-issue-opened')
   )
+
+  opened.forEach(elem => {
+    elem.parentElement.parentElement.parentElement.style['background-color'] =
+      '#f7fff8'
+  })
 }
 
 const generateAssignees = () => {
