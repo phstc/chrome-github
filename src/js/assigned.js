@@ -55,7 +55,7 @@ const generateAssignees = () => {
     return users
       .map(userArr => {
         const threeDaysAgo = new Date()
-        threeDaysAgo.setDate(threeDaysAgo.getDate() - 5)
+        threeDaysAgo.setDate(threeDaysAgo.getDate() - 7)
         const year = threeDaysAgo.getFullYear()
         const month = `0${threeDaysAgo.getMonth() + 1}`.slice(-2)
         const day = `0${threeDaysAgo.getDate()}`.slice(-2)
