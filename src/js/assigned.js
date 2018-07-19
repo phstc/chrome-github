@@ -41,15 +41,24 @@ const generateAssignees = () => {
   users = [
     ['phstc', 105652],
     ['ablythe', 6164745],
+    ['devilcoders', 29921],
     ['andrewaguiar', 141706],
     ['buccolo', 276707],
-    ['devilcoders', 29921],
-    ['eating247', 17789648],
-    ['huoxito', 245662],
     ['JDutil', 25104],
     ['reinaldob', 101831],
+    ['eating247', 17789648],
+    ['huoxito', 245662],
     ['WesKetch', 2319279]
   ]
+  // Alex
+  // Alexey
+  // Andrew
+  // Bruno
+  // Jeff
+  // Reinaldo
+  // Tingting
+  // Washigton
+  // Wes
 
   const assignees = () => {
     return users
