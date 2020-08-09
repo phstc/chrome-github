@@ -1,17 +1,17 @@
-function addAssignees() {
-  var users = {}
+const addAssignees = () => {
+  const users = {}
 
   ;[...document.getElementsByClassName('avatar-user')].forEach((elem) => {
-    var user = elem.getAttribute('alt')
-    var img = elem.getAttribute('src')
+    const user = elem.getAttribute('alt')
+    const img = elem.getAttribute('src')
 
     if (users[user] === undefined) users[user] = img
   })
 
-  var html = document.getElementsByClassName('project-header-search')[0]
+  const html = document.getElementsByClassName('project-header-search')[0]
     .innerHTML
 
-  var newHTML = Object.keys(users)
+  let newHTML = Object.keys(users)
     .map((user) => {
       var img = users[user]
       var url = `${
@@ -22,10 +22,11 @@ function addAssignees() {
     })
     .join('')
 
-  document.getElementsByClassName('project-header-search')[0].innerHTML =
-    newHTML + html
+  newHTML = `<div class="pl-sm-4">${newHTML}</div>${html}`
+
+  document.getElementsByClassName(
+    'project-header-search'
+  )[0].innerHTML = newHTML
 }
 
-window.addEventListener('load', function () {
-  window.setTimeout(addAssignees, 1000)
-})
+window.addEventListener('load', () => window.setTimeout(addAssignees, 1000))
