@@ -1,7 +1,7 @@
 {
-  "name": "chrome-github",
+  "name": "github-assignees",
   "version": "0.0.1",
-  "description": "List related Issues and Pull requests in the issues sidebar",
+  "description": "Show GitHub assignees",
   "scripts": {
     "build": "node utils/build.js",
     "start": "node utils/webserver.js",
